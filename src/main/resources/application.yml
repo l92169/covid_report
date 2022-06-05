@@ -1,0 +1,31 @@
+server:
+  port: 8080
+spring:
+  # Database connection parameters:
+  # these parameters assume that the Postgres server is installed on this local machine,
+  # it uses the default port 5432,
+  # the database name is 'covid_reporter'
+  # and username/password are 'postgres'/'postgres'
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/covid_reporter
+    username: postgres
+    password:
+    hikari:
+      driver-class-name: org.postgresql.Driver
+  # ORM (JPA/Hibernate) parameters:
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    # These properties are optional (only for informative logging):
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+edu:
+  au:
+    report:
+      # here the root directory for report files is defined
+      base-path: "./reports"
